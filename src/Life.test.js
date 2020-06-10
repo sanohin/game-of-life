@@ -30,3 +30,43 @@ describe("Any live cell with fewer than two live neighbours dies (underpopulatio
     expect(getAliveCellsCount(life.state)).toBe(0);
   });
 });
+
+describe("Any live cell with two or three live neighbours lives on to the next generation", () => {
+  it("2 neighbors", () => {
+    let life = new Life([[1, 1, 0], [1]]);
+    life.tick();
+    expect(getAliveCellsCount(life.state)).toBe(3);
+  });
+  it("3 neighbors", () => {
+    let life = new Life([
+      [1, 1, 0],
+      [1, 1, 0],
+    ]);
+    life.tick();
+    expect(getAliveCellsCount(life.state)).toBe(4);
+  });
+});
+
+describe("Any live cell with more than three live neighbours dies (overcrowding).", () => {
+  it("4 neighbors", () => {
+    let life = new Life([
+      [0, 1, 0],
+      [1, 1, 1],
+      [0, 1, 0],
+    ]);
+    life.tick();
+    // center element should be dead
+    expect(life.state[1][1]).toBe(0);
+  });
+});
+
+describe("Any dead cell with exactly three live neighbours becomes a live cell (reproduction).", () => {
+  it("3 neighbors", () => {
+    let life = new Life([
+      [1, 1],
+      [0, 1],
+    ]);
+    life.tick();
+    expect(getAliveCellsCount(life.state)).toBe(4);
+  });
+});
