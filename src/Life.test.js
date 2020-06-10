@@ -3,7 +3,7 @@ import { Life } from "./Life";
 import type { LifeState } from "./Life";
 
 const getAliveCellsCount = (state: LifeState) => {
-  return state.flat().filter((el) => el === 1).length;
+  return state.flat().filter(Life.isAlive).length;
 };
 
 it("getAliveCellsCount returns correct result", () => {

@@ -13,7 +13,11 @@ export class Life {
     this.state = initialState;
   }
 
-  tick() {
+  static isAlive = (cell: CellState): boolean => {
+    return cell === 1;
+  };
+
+  tick = () => {
     return this.state;
-  }
+  };
 }
