@@ -1,8 +1,8 @@
 // @flow
 import * as React from "react";
+import { useContext } from "react";
 import { Life } from "../simulation/Life";
 import { useLatestValue } from "../utils/useLatestValue";
-import { useContext } from "react";
 
 export const CellContext = React.createContext<{
   toggleCell: ({ rowIndex: number, columnIndex: number }) => void,

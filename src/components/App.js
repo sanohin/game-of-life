@@ -1,7 +1,7 @@
 // @flow
 import React from "react";
-import { Life } from "../simulation/Life";
 import { Board } from "./Board";
+import { Life } from "../simulation/Life";
 import { initialData } from "../simulation/initialData";
 import { CellContextProvider } from "./CellContext";
 import classes from "./App.module.css";
