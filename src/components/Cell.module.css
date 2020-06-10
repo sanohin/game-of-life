@@ -1,0 +1,14 @@
+.cell {
+  width: 50px;
+  height: 50px;
+  background-color: white;
+  will-change: background-color;
+  transition: background-color 0.2s ease;
+  border: 1px solid dimgray;
+  cursor: pointer;
+  outline: none;
+}
+
+.cellAlive {
+  background-color: black;
+}
